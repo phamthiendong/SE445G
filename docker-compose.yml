@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  is_project_mysql:
+    image: mysql:8.0
+    container_name: is_project_mysql
+    env_file: .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_DATABASE}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - '3307:3306'
+    volumes:
+      - is_project_mysql_data:/var/lib/mysql
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - is_project_network
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  is_project_mysql_data:
+    driver: local
+
+networks:
+  is_project_network:
+    driver: bridge
