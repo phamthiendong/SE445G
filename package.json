@@ -90,7 +90,7 @@
     "jest": "^27.0.6",
     "jsonwebtoken": "^8.5.1",
     "nodemailer": "^6.7.2",
-    "passport": "^0.4.1",
+    "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "prettier": "^2.3.2",
     "pug": "^2.0.4",
